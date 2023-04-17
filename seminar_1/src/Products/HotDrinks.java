@@ -1,13 +1,22 @@
 package Products;
 
-public class BottleOfWater extends Product {
+public class HotDrinks extends Product {
 
+    private int temperature;
     private int volume;
 
-    public BottleOfWater(String name, double price, int volume)
-    {
+    public HotDrinks(String name, double price, int temperature, int volume) {
         super(name, price);
+        this.temperature = temperature;
         this.volume = volume;
+    }
+
+    public int getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(int temperature) {
+        this.temperature = temperature;
     }
 
     public int getVolume() {
@@ -27,8 +36,8 @@ public class BottleOfWater extends Product {
         return  "Product{" +
                 "name = '" + super.getName() + '\'' +
                 ", cost = " + super.getPrice() +
+                ", temperature = " + temperature +
                 ", volume = " + volume +
                 '}';
     }
-
 }

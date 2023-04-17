@@ -1,4 +1,5 @@
 import Products.BottleOfWater;
+import Products.HotDrinks;
 import Products.Product;
 import VendingMachines.VendingMachine;
 
@@ -15,7 +16,18 @@ public class Main {
         itemMachine.addProduct(new Product("Bread", 45.0));
         itemMachine.addProduct(new Product("Snack", 56.0));
         itemMachine.addProduct(new BottleOfWater("Cola", 88.0, 500 ));
-        itemMachine.addProduct(new BottleOfWater("Water", 188.0, 1500 ));        for (Product prod: itemMachine.getProductAll()) {
+        itemMachine.addProduct(new BottleOfWater("Water", 188.0, 1500 ));
+        itemMachine.addProduct(new HotDrinks("latte", 150, 82, 350));
+        itemMachine.addProduct(new HotDrinks("cappuccino", 145, 82, 350));
+        itemMachine.addProduct(new HotDrinks("cappuccino", 120, 82, 250));
+        itemMachine.addProduct(new HotDrinks("espresso", 90, 85, 100));
+        itemMachine.addProduct(new HotDrinks("green tea", 95, 75, 250));
+        itemMachine.addProduct(new HotDrinks("green tea", 105, 75, 350));
+        itemMachine.addProduct(new HotDrinks("black tea", 90, 100, 250));
+        itemMachine.addProduct(new HotDrinks("black tea", 105, 100, 350));
+        itemMachine.addProduct(new HotDrinks("oolong  tea", 100, 85, 250));
+        itemMachine.addProduct(new HotDrinks("herbal tea", 90, 100, 250));
+        for (Product prod: itemMachine.getProductAll()) {
             System.out.println(prod.toString());
         }
 
