@@ -2,10 +2,7 @@ import StudentDomen.Student;
 import StudentDomen.StudentGroup;
 import StudentDomen.User;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -17,7 +14,7 @@ public class Main {
         Student s5 = new Student("Даша", "Цветкова", 23, (long)171);
         Student s6 = new Student("Лена", "Незабудкина", 23, (long)104);
 
-        List<Student> listStud = new ArrayList<Student>();
+        List<Student> listStud = new ArrayList<>();
         listStud.add(s1);
         listStud.add(s2);
         listStud.add(s3);
@@ -48,5 +45,21 @@ public class Main {
         //System.out.println(group);
 
 
+        List<StudentGroup> studentGroups = new ArrayList<>();
+
+        studentGroups.add(new StudentGroup(listStud));
+
+        List<Student> listStud2 = new ArrayList<>();
+        listStud2.add(s1);
+        listStud2.add(s2);
+        listStud2.add(s3);
+        listStud2.add(s4);
+
+        studentGroups.add(new StudentGroup(listStud2));
+        Collections.sort(studentGroups);
+
+        for (int i = 0; i < studentGroups.size(); i++) {
+            System.out.println("Students in group #" + (i + 1) + ": " + studentGroups.get(i).getStudents().size());
+        }
     }
 }
