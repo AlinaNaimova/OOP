@@ -41,6 +41,6 @@ public class User {
                 "firstName='" + firstName + '\'' +
                 ", secondName='" + secondName + '\'' +
                 ", age=" + age +
-                '}';
+                '}' + "\n";
     }
 }

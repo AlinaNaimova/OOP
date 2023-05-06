@@ -1,6 +1,5 @@
-import StudentDomen.Student;
-import StudentDomen.StudentGroup;
-import StudentDomen.User;
+import StudentDomen.*;
+import StudentService.TeacherService;
 
 import java.util.*;
 
@@ -14,15 +13,15 @@ public class Main {
         Student s5 = new Student("Даша", "Цветкова", 23, (long)171);
         Student s6 = new Student("Лена", "Незабудкина", 23, (long)104);
 
-        List<Student> listStud = new ArrayList<>();
-        listStud.add(s1);
-        listStud.add(s2);
-        listStud.add(s3);
-        listStud.add(s4);
-        listStud.add(s5);
-        listStud.add(s6);
+        List<Student> studList = new ArrayList<>();
+        studList.add(s1);
+        studList.add(s2);
+        studList.add(s3);
+        studList.add(s4);
+        studList.add(s5);
+        studList.add(s6);
 
-        StudentGroup group = new StudentGroup(listStud);
+        StudentGroup group = new StudentGroup(studList);
 
         for(Student stud : group)
         {
@@ -31,7 +30,6 @@ public class Main {
 
         System.out.println("============= после сортировки =============");
         Collections.sort(group.getStudents());
-
 
         for(Student stud : group)
         {
@@ -47,7 +45,7 @@ public class Main {
 
         List<StudentGroup> studentGroups = new ArrayList<>();
 
-        studentGroups.add(new StudentGroup(listStud));
+        studentGroups.add(new StudentGroup(studList));
 
         List<Student> listStud2 = new ArrayList<>();
         listStud2.add(s1);
@@ -61,5 +59,32 @@ public class Main {
         for (int i = 0; i < studentGroups.size(); i++) {
             System.out.println("Students in group #" + (i + 1) + ": " + studentGroups.get(i).getStudents().size());
         }
+        System.out.println("Teachers below: ");
+
+        TeacherService teacherService = new TeacherService();
+        teacherService.create("Sara", "Smith", 34, "Master");
+        teacherService.create("Anthony", "Hopkins", 67, "PhD");
+        teacherService.create("Thomas", "Trump", 54, "PhD");
+        teacherService.create("Mona", "Stone", 37, "Master");
+
+        System.out.println(teacherService.getSortedList());
+
+
+        //================================3task
+        List<Employee> employeeList = new ArrayList<>();
+        employeeList.add(new Employee("dsgsg", "sdgsdg", 111, 1));
+        employeeList.add(new Employee("dsgsg", "sdgsdg", 111, 1));
+        employeeList.add(new Employee("dsgsg", "sdgsdg", 111, 1));
+        employeeList.add(new Employee("dsgsg", "sdgsdg", 111, 1));
+
+        List<User> userList = new ArrayList<>();
+        userList.addAll(studList);
+        userList.addAll(teacherService.getAll());
+        userList.addAll(employeeList);
+
+        AverageAge averageAge = new AverageAge();
+        System.out.printf("Average age is %.2f", averageAge.calculateAverageAge(userList));
+        //вывод только два знака после запятой
+
     }
 }
